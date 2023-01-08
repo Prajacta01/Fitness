@@ -88,30 +88,33 @@ const Nutrition = () => {
             'Granny Smith',
             'pizza',
             'coffee mug',
-            'pineapple', 'banana',
-            'Fig',
-            'Cucumber',
-            'Cauliflower',
-            'Head cabbage',
-            'Pretzel',
-            'Bagel',
-            'Lemon'
+            'pineapple',
+            'banana',
+            'fig',
+            'cucumber',
+            'cauliflower',
+            'head cabbage',
+            'pretzel',
+            'bagel',
+            'lemon',
+            'bell pepper'
         ]
 
         const knownFoodListFacts = {
             'orange': { protein: 0.6, fat: 0.1, carbs: 8.9 },
             'Granny Smith': { protein: 0.3, fat: 0.2, carbs: 14 },
             'coffee mug': { protein: 0.3, fat: 0.1, carbs: 0 },
-            'pineapple': { protien: 3.6, fat: 0.8, carbs: 328 },
+            'pineapple': { protein: 3.6, fat: 0.8, carbs: 328 },
             'banana': { protein: 1.3, fat: 0.4, carbs: 105 },
-            'Fig': { protien: 0.4, fat: 0.2, carbs: 37 },
-            'Bell pepper': { protien: 1.1, fat: 0.2, carbs: 32 },
-            'Cucumber': { protien: 1.3, fat: 0.2, carbs: 30 },
-            'Cauliflower': { protien: 11, fat: 2.6, carbs: 132 },
-            'Head cabbage': { protien: 17.1, fat: 0.9, carbs: 306 },
-            'Pretzel': { protien: 2.8, fat: 0.8, carbs: 109 },
-            'Bagel': { protien: 11, fat: 1.4, carbs: 277 },
-            'Lemon': { protien: 0.9, fat: 0.3, carbs: 24 }
+            'fig': { protein: 0.4, fat: 0.2, carbs: 37 },
+            'bell pepper': { protein: 1.1, fat: 0.2, carbs: 32 },
+            'cucumber': { protein: 1.3, fat: 0.2, carbs: 30 },
+            'cauliflower': { protein: 11, fat: 2.6, carbs: 132 },
+            'head cabbage': { protein: 17.1, fat: 0.9, carbs: 306 },
+            'pretzel': { protein: 2.8, fat: 0.8, carbs: 109 },
+            'bagel': { protein: 11, fat: 1.4, carbs: 277 },
+            'lemon': { protein: 0.9, fat: 0.3, carbs: 24 },
+
         }
 
         if (knownFoodList.includes(pred)) {
@@ -213,7 +216,8 @@ const Nutrition = () => {
         </>
     )
 }
-// source https://stackoverflow.com/questions/66006723/how-to-capture-image-using-expo-camera-in-react-native
+// source for camera: https://stackoverflow.com/questions/66006723/how-to-capture-image-using-expo-camera-in-react-native
+// image classification tutorial: https://towardsdatascience.com/deep-learning-for-detecting-objects-in-an-image-on-mobile-devices-7d5b2e5621f9
 export default Nutrition;
 
 const styles = StyleSheet.create({

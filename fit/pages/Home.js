@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#e7e4d9',
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
-        padding: '10%'
+        padding: '5%'
     },
     header: {
         // height: 80
