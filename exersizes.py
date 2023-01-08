@@ -1,7 +1,5 @@
 import random
 
-
-# List of exercises
 exercises = [
     {'name': 'Pushups', 'equipment': 'none', 'muscle group': 'chest, triceps', 'reps': 10, 'intensity': 'high', 'path': './exersizevids/Push Up.mp4 [OBpPJTO1VY0].mp4'},
     {'name': 'Squats', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high', 'path': './exersizevids/Squat.mp4 [KvoctBROlH8].mkv'},
@@ -32,14 +30,14 @@ exercises = [
     {'name': 'Pistol Squats', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Pistol squat.mp4 [G3DQOAEVTEQ].mp4'},
     {'name': 'Barbell Squats', 'equipment': 'barbell', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Barbell Squats.MP4 [5dG5vInOQnw].mp4'},
     {'name': 'Dumbbell Squats', 'equipment': 'dumbbells', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Dumbbell squat wide.mp4 [UjgaNXds-BA].mp4'}
-    ]
+]
 
 asthma_exercises = [
     {'name': 'Plank', 'equipment': 'none', 'muscle group': 'core', 'reps': 30, 'intensity': 'high','path': './exersizevids/Plank.mp4 [vHqOZavtFm4].mp4'},
     {'name': 'Tricep Dips', 'equipment': 'chair, bench', 'muscle group': 'triceps', 'reps': 10, 'intensity': 'high', 'path': './exersizevids/EMS TRICEPS DIPS .mp4 [ylOZCJfBHjg].mp4'},    {'name': 'Wall Sit', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 30, 'intensity': 'high'},
     {'name': 'Pistol Squats', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Pistol squat.mp4 [G3DQOAEVTEQ].mp4'},
     {'name': 'Barbell Squats', 'equipment': 'barbell', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Barbell Squats.MP4 [5dG5vInOQnw].mp4'},
-    {'name': 'Dumbbell Squats', 'equipment': 'dumbbells', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Dumbbell squat wide.mp4 [UjgaNXds-BA].mp4'}   
+    {'name': 'Dumbbell Squats', 'equipment': 'dumbbells', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Dumbbell squat wide.mp4 [UjgaNXds-BA].mp4'},   
     {'name': 'Jump Rope', 'equipment': 'jump rope', 'muscle group': 'cardio', 'reps': 50, 'intensity': 'moderate','path': './exersizevids/Anthony Joshua jump rope workout [tLkXcK1QXp0].mp4'},
     {'name': 'Butt Kicks', 'equipment': 'none', 'muscle group': 'cardio', 'reps': 50, 'intensity': 'high','path': './exersizevids/Exercise Library： Butt Kicks [lVZi-AwxLPo].mp4'},
     {'name': 'Side Plank', 'equipment': 'none', 'muscle group': 'core', 'reps': 30, 'intensity': 'high','path': './exersizevids/Side Plank.mp4 [11HLKYYAPzs].mp4'},
@@ -92,9 +90,6 @@ over_50_exercises = [
     {'name': 'Hip Thrusts', 'equipment': 'barbell', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high','path': './exersizevids/Machine Hip Thrust [ZSPmIyX9RZs].mp4'},
 ]
 
-
-
-
 stretches = [
     {'name': 'Chest stretch', 'equipment': 'none', 'muscle group': 'chest', 'reps': 'hold for 30 seconds', 'intensity': 'medium'},
     {'name': 'Tricep stretch', 'equipment': 'none', 'muscle group': 'triceps', 'reps': 'hold for 30 seconds', 'intensity': 'medium'},
@@ -106,7 +101,7 @@ stretches = [
     {'name': 'Hip flexor stretch', 'equipment': 'none', 'muscle group': 'hip flexors', 'reps': 'hold for 30 seconds', 'intensity': 'medium'},
     {'name': 'Quad stretch', 'equipment': 'none', 'muscle group': 'quadriceps', 'reps': 'hold for 30 seconds', 'intensity': 'medium'},
     {'name': 'Calf stretch', 'equipment': 'none', 'muscle group': 'calves', 'reps': 'hold for 30 seconds', 'intensity': 'medium'}
-    ]
+]
 
 def workout_generators():   
     rounds = 3
@@ -135,7 +130,7 @@ def stretches_generators():
         stre.append(f'    {stretch["name"]} ({stretch["equipment"]}): {stretch["reps"]} reps at {stretch["intensity"]} intensity')
     return(stre)
 
-from flask import Flask, send_file``
+from flask import Flask, send_file
 app = Flask(__name__)
 
 @app.route('/workout')
@@ -144,3 +139,5 @@ def serve_video():
     return render_template("index.html", user=user)
 if __name__ == '__main__':
     app.run()
+
+
