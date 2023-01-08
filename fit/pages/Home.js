@@ -12,17 +12,19 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={{ fontSize: 50, fontWeight: 'bold', color: '#404C4D' }}>SNTP</Text>
+                <Text style={{ fontSize: 50, fontWeight: 'bold', color: '#404C4D' }}>SNPT</Text>
             </View>
             <View style={styles.wrapper}>
                 <InfoCard
-                    title="Workout Planner"
-                    onPress={() => navigation.navigate("WorkoutPlanner")}
+                    title="Workouts"
+
+                    onPress={() => navigation.navigate("Workouts")}
                 >
-                    <FontAwesome5 name="calendar-alt" size={62} color="#404C4D" /> 
+                    {<FontAwesome5 name="calendar-alt" size={62} color="#404C4D" />}
                 </InfoCard>
                 <InfoCard
                     title="Nutrition"
+
                     onPress={() => navigation.navigate("Nutrition")}
                 >
                     <MaterialCommunityIcons name="food-apple-outline" size={75} color="#404C4D" />

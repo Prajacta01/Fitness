@@ -15,6 +15,9 @@ const Nutrition = () => {
     const [imageUri, setImageUri] = useState(null)
     const [isListView, setIsListView] = useState(false)
     const [foodItems, setFoodItems] = useState([])
+    const [totalProtein, setTotalProtein] = useState(0)
+    const [totalFat, setTotalFat] = useState(0)
+    const [totalCarbs, setTotalCarbs] = useState(0)
 
     const getPermissions = async () => {
         const cameraPermission = await Camera.requestCameraPermissionsAsync();
@@ -78,6 +81,36 @@ const Nutrition = () => {
         load()
     }, [])
 
+    const handleNewFoodItem = (pred) => {
+        console.log(pred, 'are we here')
+        const knownFoodList = ['orange', 'Granny Smith', 'pizza', 'coffee mug']
+        const knownFoodListFacts = {
+            'orange': { protein: 0.6, fat: 0.1, carbs: 8.9 },
+            'Granny Smith': { protein: 0.3, fat: 0.2, carbs: 14 },
+            'coffee mug': { protein: 0.3, fat: 0.1, carbs: 0 },
+        }
+        if (knownFoodList.includes(pred)) {
+            console.log(pred)
+
+            console.log('protein:', knownFoodListFacts[pred]['protein'])
+            console.log('fat', knownFoodListFacts[pred]['fat'])
+            console.log('carbs', knownFoodListFacts[pred]['carbs'])
+
+            let currentProtein = totalProtein
+            let updatedProtein = currentProtein + knownFoodListFacts[pred]['protein']
+            setTotalProtein(updatedProtein)
+
+            let currentFat = totalFat
+            let updatedFat = currentFat + knownFoodListFacts[pred]['fat']
+            setTotalFat(updatedFat)
+
+            let currentCarbs = totalCarbs
+            let updatedCarbs = currentCarbs + knownFoodListFacts[pred]['carbs']
+            setTotalCarbs(updatedCarbs)
+
+        }
+    }
+
     const takePicture = async () => {
         if (camera) {
             const data = await camera.takePictureAsync(null);
@@ -92,15 +125,18 @@ const Nutrition = () => {
             );
 
             const source = { uri: manipResponse.uri };
-            //   setImageToAnalyze(source);
 
+            // get pred
             const pred = await detectObjectsAsync(source);
+
             // add to your list
             setFoodItems([...foodItems, { text: pred, id: Math.random().toString() }])
 
-
+            // change view
             console.log(pred, foodItems)
             setIsListView(true)
+
+            handleNewFoodItem(pred)
         }
 
     };
@@ -126,15 +162,22 @@ const Nutrition = () => {
                         data={foodItems}
                         renderItem={(itemData) => {
                             return (
-                                <Text>
+                                <Text style={styles.list}>
                                     {itemData.item.text}
+
                                 </Text>
+
                             );
                         }}
                         keyExtractor={(item, index) => {
                             return item.id;
                         }}
                         alwaysBounceVertical={false} />
+                </View>
+                <View style={styles.list}>
+                    <Text>Protein {totalProtein}</Text>
+                    <Text>Carbs {totalCarbs}</Text>
+                    <Text>Fat {totalFat}</Text>
                 </View>
                 <Button title={'Take Picture'} onPress={() => setIsListView(false)} />
 
@@ -168,5 +211,10 @@ const styles = StyleSheet.create({
         // flex: 1,
         flexDirection: 'row',
         height: '50%'
+    },
+    list: {
+        fontSize: 20,
+        paddingLeft: 10,
+        opacity: 0.55,
     }
 });

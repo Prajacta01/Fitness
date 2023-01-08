@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "700",
         color: "#404C4D",
-        margin:"auto",
-        textAlign:"center",
+        margin: "auto",
+        textAlign: "center",
         marginBottom: 10
     },
     desc: {
@@ -50,4 +50,3 @@ const styles = StyleSheet.create({
         color: "#404C4D"
     }
 });
-
