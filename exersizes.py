@@ -123,13 +123,21 @@ def workout_generators():
     workout_stretches.append(stre)
     return(workout_stretches)
 
-from flask import Flask, send_file
+from flask import Flask, request, jsonify, after_this_request
+
 app = Flask(__name__)
 
-@app.route('/workout')
-def serve_video():
+
+@app.route('/hello', methods=['GET'])
+def hello():
+    @after_this_request
+    def add_header(response):
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+
+
+    
     return workout_generators()
+
 if __name__ == '__main__':
-    app.run()
-
-
+    app.run(host='localhost', port=8989)
