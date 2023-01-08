@@ -16,22 +16,19 @@ const Home = () => {
             </View>
             <View style={styles.wrapper}>
                 <InfoCard
-                    title="Workouts"
-                    description="Exercises based on your goals"
+                    title="Workout Planner"
                     onPress={() => navigation.navigate("ImageDetection")}
                 >
-                    {/* <FontAwesome5 name="calendar-alt" size={62} color="#404C4D" /> */}
+                    <FontAwesome5 name="calendar-alt" size={62} color="#404C4D" /> 
                 </InfoCard>
                 <InfoCard
                     title="Nutrition"
-                    description="Foods that are more nutritional"
                     onPress={() => navigation.navigate("Nutrition")}
                 >
                     <MaterialCommunityIcons name="food-apple-outline" size={75} color="#404C4D" />
                 </InfoCard>
                 <InfoCard
-                    title="Reassess"
-                    description="Assess appropriate exercises based on medical conditions"
+                    title="Survey"
                     onPress={() => navigation.navigate("ImageDetection")}
                 >
                     <FontAwesome5 name="list-alt" size={60} color="#404C4D" />
@@ -49,7 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#e7e4d9',
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
-        padding: '5%'
+        padding: '10%'
     },
     header: {
         // height: 80
@@ -58,7 +55,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-evenly',
         flexDirection: 'column',
-        height: '100%',
+        height: '150%',
         width: '100%'
     },
 });
