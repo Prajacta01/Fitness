@@ -17,7 +17,7 @@ const Home = () => {
             <View style={styles.wrapper}>
                 <InfoCard
                     title="Workout Planner"
-                    onPress={() => navigation.navigate("ImageDetection")}
+                    onPress={() => navigation.navigate("WorkoutPlanner")}
                 >
                     <FontAwesome5 name="calendar-alt" size={62} color="#404C4D" /> 
                 </InfoCard>
@@ -29,7 +29,7 @@ const Home = () => {
                 </InfoCard>
                 <InfoCard
                     title="Survey"
-                    onPress={() => navigation.navigate("ImageDetection")}
+                    onPress={() => navigation.navigate("Survey")}
                 >
                     <FontAwesome5 name="list-alt" size={60} color="#404C4D" />
                 </InfoCard>

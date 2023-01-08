@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Dimensions, Pressable } from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler';
+import WorkoutPlanner from './WorkoutPlanner';
 
 const Survey = () => {
     return (
@@ -10,6 +11,7 @@ const Survey = () => {
                 // style={({ pressed }) => pressed && styles.pressedItem}
                 >
                     <Text style={styles.text}>Survey</Text>
+                    <WorkoutPlanner option={'exercises'}/>
                 </Pressable>
             </View>
         </View>
