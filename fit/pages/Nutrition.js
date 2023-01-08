@@ -82,13 +82,38 @@ const Nutrition = () => {
     }, [])
 
     const handleNewFoodItem = (pred) => {
-        console.log(pred, 'are we here')
-        const knownFoodList = ['orange', 'Granny Smith', 'pizza', 'coffee mug']
+        // console.log(pred, 'are we here')
+        const knownFoodList = [
+            'orange',
+            'Granny Smith',
+            'pizza',
+            'coffee mug',
+            'pineapple', 'banana',
+            'Fig',
+            'Cucumber',
+            'Cauliflower',
+            'Head cabbage',
+            'Pretzel',
+            'Bagel',
+            'Lemon'
+        ]
+
         const knownFoodListFacts = {
             'orange': { protein: 0.6, fat: 0.1, carbs: 8.9 },
             'Granny Smith': { protein: 0.3, fat: 0.2, carbs: 14 },
             'coffee mug': { protein: 0.3, fat: 0.1, carbs: 0 },
+            'pineapple': { protien: 3.6, fat: 0.8, carbs: 328 },
+            'banana': { protein: 1.3, fat: 0.4, carbs: 105 },
+            'Fig': { protien: 0.4, fat: 0.2, carbs: 37 },
+            'Bell pepper': { protien: 1.1, fat: 0.2, carbs: 32 },
+            'Cucumber': { protien: 1.3, fat: 0.2, carbs: 30 },
+            'Cauliflower': { protien: 11, fat: 2.6, carbs: 132 },
+            'Head cabbage': { protien: 17.1, fat: 0.9, carbs: 306 },
+            'Pretzel': { protien: 2.8, fat: 0.8, carbs: 109 },
+            'Bagel': { protien: 11, fat: 1.4, carbs: 277 },
+            'Lemon': { protien: 0.9, fat: 0.3, carbs: 24 }
         }
+
         if (knownFoodList.includes(pred)) {
             console.log(pred)
 
@@ -133,7 +158,7 @@ const Nutrition = () => {
             setFoodItems([...foodItems, { text: pred, id: Math.random().toString() }])
 
             // change view
-            console.log(pred, foodItems)
+            // console.log(pred, foodItems)
             setIsListView(true)
 
             handleNewFoodItem(pred)
@@ -144,7 +169,9 @@ const Nutrition = () => {
     return (
         <>
             {!isListView && <View style={styles.container}>
-                <Text style={styles.text}>Nutrition</Text>
+                <View style={styles.item}>
+                    <Text style={styles.text}>Nutrition</Text>
+                </View>
                 <Camera
                     ref={(ref) => setCamera(ref)}
                     style={styles.camera}
