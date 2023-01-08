@@ -20,18 +20,15 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 50,
-        paddingHorizontal: 16,
-        backgroundColor: '#1e085a',
+        paddingTop: 2,
+        backgroundColor: '#e7e4d9',
         height: '100%',
         width: '100%',
-        backgroundColor: 'pink'
     },
     item: {
         margin: 8,
-        borderRadius: 6,
-        backgroundColor: '#5e0acc',
-        maxHeight: 100
+        backgroundColor: '#6db06c',
+        maxHeight: '20%'
     },
     text: {
         padding: 8,
