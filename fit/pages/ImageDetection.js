@@ -3,7 +3,6 @@ import { cameraWithTensors } from '@tensorflow/tfjs-react-native'
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import * as mobilenet from '@tensorflow-models/mobilenet';
-// import { TFHUB_SEARCH_PARAM } from '@tensorflow/tfjs-converter/dist/executor/graph_model';
 import { Camera } from 'expo-camera'
 import * as tf from '@tensorflow/tfjs'
 
@@ -22,14 +21,14 @@ export default function ImageDetection() {
       const nextImageTensor = images.next().value;
       if (!model || !nextImageTensor)
         throw new Error('No model or image tensor');
-      model.detect(nextImageTensor).then((prediction) => {
-
+      model.classify(nextImageTensor).then((prediction) => {
+        console.log(prediction)
       })
     };
     loop();
   }
 
-  const initialiseTensorflow = async () => {
+  const initializeTensorflow = async () => {
     await tf.ready();
     tf.getBackend();
   }
@@ -39,8 +38,14 @@ export default function ImageDetection() {
     const load = async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
       console.log(status, 'status');
+
+      await initializeTensorflow()
+
+      setModel(await mobilenet.load())
     };
     load();
+
+
   }, []);
 
   return (
@@ -53,7 +58,7 @@ export default function ImageDetection() {
         resizeHeight={200}
         resizeWidth={152}
         resizeDepth={3}
-        onReady={() => { }}
+        onReady={handleCameraStream}
         autorender={true}
         useCustomShadersToResize={false}
       />
