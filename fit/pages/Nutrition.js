@@ -218,6 +218,7 @@ const Nutrition = () => {
 }
 // source for camera: https://stackoverflow.com/questions/66006723/how-to-capture-image-using-expo-camera-in-react-native
 // image classification tutorial: https://towardsdatascience.com/deep-learning-for-detecting-objects-in-an-image-on-mobile-devices-7d5b2e5621f9
+// another image classification tutorial: https://www.bam.tech/article/how-to-recognize-real-time-object-in-reactnative-for-dummies
 export default Nutrition;
 
 const styles = StyleSheet.create({
