@@ -1,38 +1,76 @@
 import React from 'react'
-import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import ImageDetection from "./pages/ImageDetection";
+
+// import ImageDetection from "./pages/ImageDetection";
 import Home from "./pages/Home"
+import Workouts from './pages/Workouts';
 import Nutrition from "./pages/Nutrition"
 import Survey from "./pages/Survey"
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const AppStackNavigator = () => {
     return (
-        <Stack.Navigator>
-            <Stack.Screen
-                initialRouteName="Home"
-                name="Home"
-                component={Home}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="ImageDetection"
-                component={ImageDetection}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
+        <Tab.Navigator
+            initialRouteName="ImageDetection"
+            activeColor="brown"
+            barStyle={{ backgroundColor: '#6db06c' }}
+        >
+            <Tab.Screen
                 name="Nutrition"
                 component={Nutrition}
-                options={{ headerShown: false }}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="food-apple-outline" size={30} color={color} />
+                    )
+                }}
             />
-            <Stack.Screen
+            <Tab.Screen
+                name="Home"
+                component={Home}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color }) => (
+                        <FontAwesome5 name="home" size={30} color={color} />
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Workouts"
+                component={Workouts}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color }) => (
+                        <FontAwesome5 name="dumbbell" size={30} color={color} />
+                    )
+                }}
+            />
+
+            {/* <Tab.Screen
+                name="Nutrition"
+                component={Nutrition}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: () => (
+                        <MaterialCommunityIcons name="food-apple-outline" size={30} color="#404C4D" />
+                    )
+                }}
+            /> */}
+            <Tab.Screen
                 name="Survey"
                 component={Survey}
-                options={{ headerShown: false }}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color }) => (
+                        <FontAwesome5 name="list-alt" size={30} color={color} />
+                    )
+                }}
             />
-        </Stack.Navigator>
+        </Tab.Navigator>
     )
 }
 
