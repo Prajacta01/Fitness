@@ -97,7 +97,8 @@ const Nutrition = () => {
             'pretzel',
             'bagel',
             'lemon',
-            'bell pepper'
+            'bell pepper',
+            'cheeseburger',
         ]
 
         const knownFoodListFacts = {
@@ -114,6 +115,7 @@ const Nutrition = () => {
             'pretzel': { protein: 2.8, fat: 0.8, carbs: 109 },
             'bagel': { protein: 11, fat: 1.4, carbs: 277 },
             'lemon': { protein: 0.9, fat: 0.3, carbs: 24 },
+            'cheeseburger': { protein: 30, fat: 29, carbs: 39 },
 
         }
 
