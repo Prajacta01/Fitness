@@ -116,19 +116,12 @@ def workout_generators():
             worko.append(f'    {exercise["name"]} ({exercise["equipment"]}): {exercise["reps"]} reps at {exercise["intensity"]} intensity : path: {exercise["path"]}')
     
     stre.append(f'Stretches:')
-    for j in range(5):
+    for j in range(4):
         stretch = random.choice(stretches)
         stre.append(f'    {stretch["name"]} ({stretch["equipment"]}): {stretch["reps"]} reps at {stretch["intensity"]} intensity')
     workout_stretches.append(worko)
     workout_stretches.append(stre)
     return(workout_stretches)
-def stretches_generators():
-    stre = []
-    stre.append(f'Stretches:')
-    for j in range(4):
-        stretch = random.choice(stretches)
-        stre.append(f'    {stretch["name"]} ({stretch["equipment"]}): {stretch["reps"]} reps at {stretch["intensity"]} intensity')
-    return(stre)
 
 from flask import Flask, send_file
 app = Flask(__name__)
@@ -136,7 +129,6 @@ app = Flask(__name__)
 @app.route('/workout')
 def serve_video():
     return workout_generators()
-    return render_template("index.html", user=user)
 if __name__ == '__main__':
     app.run()
 
