@@ -1,11 +1,11 @@
 from flask import Flask, send_file
-
+from exersizes import *
 app = Flask(__name__)
 
-@app.route('/video/jumprope')
+@app.route('/workout')
 def serve_video():
-    return send_file('/home/nimnim/hackathon/exersizevids/Anthony Joshua jump rope workout [tLkXcK1QXp0].mp4', mimetype='video/mkv')
+    return print(workout_generators())
 def serve_video2():
-    return("test")
+    return print(stretches_generators())
 if __name__ == '__main__':
     app.run()
