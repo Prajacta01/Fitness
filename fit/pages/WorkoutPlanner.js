@@ -120,8 +120,9 @@ const getExercises = (option) => {
 }
 
 const WorkoutPlanner = () => {
-    const route = useRoute();
-    console.log(route.params.option)
+    const { params } = useRoute();
+    const { option } = params
+    console.log(option)
 
 
     const video = React.useRef(null);
@@ -130,11 +131,11 @@ const WorkoutPlanner = () => {
 
     useEffect(() => {
         console.log(option)
-        setExercises(getExercises(option));
+        // setExercises(getExercises(option));
     }, [])
 
 
-    const exercisesList = getExercises(option);
+    // const exercisesList = getExercises(option);
 
     return (
         <View style={styles.container}>

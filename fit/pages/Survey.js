@@ -17,7 +17,7 @@ const Item = ({ title, navigation }) => {
             onPress={() => {
                 console.log('here')
 
-                navigation.navigate('Workouts', { option: 'pregnant_exercises' })
+                navigation.navigate('Workouts', { option: title })
             }
             }
 
