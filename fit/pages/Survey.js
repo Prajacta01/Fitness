@@ -6,7 +6,7 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 const DATA = [
     {
         title: "Which of the following conditions do you have?",
-        data: ["None", "Pregnancy", "Obese", "Over 50 Years", "Asthma"]
+        data: ["None", "Pregnancy", "Obese", "Over 50 Years", "Asthma"],
     }
 ];
 
@@ -15,8 +15,6 @@ const Item = ({ title, navigation }) => {
         <Button
             title={title}
             onPress={() => {
-                console.log('here')
-
                 navigation.navigate('Workouts', { option: title })
             }
             }

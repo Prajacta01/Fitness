@@ -82,7 +82,6 @@ const Nutrition = () => {
     }, [])
 
     const handleNewFoodItem = (pred) => {
-        // console.log(pred, 'are we here')
         const knownFoodList = [
             'orange',
             'Granny Smith',

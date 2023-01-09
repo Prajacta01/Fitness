@@ -5,7 +5,6 @@ import { View, Text, StyleSheet, Dimensions, Pressable, Button } from 'react-nat
 
 
 const exercises_map = {
-
     exercises: [
         { 'name': 'Pushups', 'equipment': 'none', 'muscle group': 'chest, triceps', 'reps': 10, 'intensity': 'high', 'path': '../assets/exersizevids/Pushups.mp4' },
         { 'name': 'Squats', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high', 'path': '../assets/exersizevids/Squat.mp4 [KvoctBROlH8].mkv' },
@@ -122,7 +121,10 @@ const getExercises = (option) => {
 const WorkoutPlanner = () => {
     const { params } = useRoute();
     const { option } = params
-    console.log(option)
+
+    const mapOptionsToEx = {
+        "None": "exercises", "Pregnancy": "pregnant_exercises", "Obese": "obese_exercises", "Over 50 Years": "over_50_exercises", "Asthma": "stretches"
+    }
 
 
     const video = React.useRef(null);
@@ -130,9 +132,9 @@ const WorkoutPlanner = () => {
     const [exercises, setExercises] = React.useState([]);
 
     useEffect(() => {
-        console.log(option)
-        // setExercises(getExercises(option));
-    }, [])
+        console.log(option, mapOptionsToEx[option])
+        setExercises(getExercises(mapOptionsToEx[option]));
+    }, [option])
 
 
     // const exercisesList = getExercises(option);
@@ -140,22 +142,24 @@ const WorkoutPlanner = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Workout Plan For you</Text>
-            {/* <View style={styles.item}>
+            <View style={styles.item}>
                 {
-                    exercisesList.map((item) => (
+                    exercises.map((item) => (
                         <View key={item.name}>
                             <Text style={styles.text}>
                                 {item.name}
                             </Text>
-                            <Video
+                            {/* <Video
                                 ref={video}
                                 style={styles.video}
                                 source={require('../assets/exersizevids/Pushups.mp4')}
-                                useNativeControls
-                                resizeMode="contain"
+                                // source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+                                shouldPlay
+                                resizeMode="cover"
                                 isLooping
-                                onPlaybackStatusUpdate={status => setStatus(() => status)}
-                            />
+                            // onPlaybackStatusUpdate={status => setStatus(() => status)}
+                            /> */}
+
                             <View style={styles.buttons}>
                                 <Button
                                     title={status.isPlaying ? 'Pause' : 'Play'}
@@ -167,7 +171,7 @@ const WorkoutPlanner = () => {
                         </View>
                     ))
                 }
-            </View> */}
+            </View>
         </View>
     )
 }
