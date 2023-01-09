@@ -4,6 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 // import ImageDetection from "./pages/ImageDetection";
+import WorkoutPlanner from './pages/WorkoutPlanner';
 import Home from "./pages/Home"
 import Workouts from './pages/Workouts';
 import Nutrition from "./pages/Nutrition"
@@ -40,7 +41,7 @@ const AppStackNavigator = () => {
             />
             <Tab.Screen
                 name="Workouts"
-                component={Workouts}
+                component={WorkoutPlanner}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { useRoute } from '@react-navigation/native';
 import { View, Text, StyleSheet, Dimensions, Pressable, Button } from 'react-native'
-import { Video, AVPlaybackStatus } from 'expo-av';
+// import { Video, AVPlaybackStatus } from 'expo-av';
 
 
 const exercises_map = {
@@ -40,11 +41,11 @@ const exercises_map = {
     ],
 
     pregnant_exercises: [
-        { 'name': 'Plank', 'equipment': 'none', 'muscle group': 'core', 'reps': 30, 'intensity': 'high', 'path': '../assets/exersizevids/Plank.mp4' },
-        { 'name': 'Glute Bridges', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high', 'path': '../assets/exersizevids/GluteBridge.mp4' },
-        { 'name': 'Side Plank', 'equipment': 'none', 'muscle group': 'core', 'reps': 30, 'intensity': 'high', 'path': '../assets/exersizevids/SidePlank.mp4' },
-        { 'name': 'Pelvic Thrusts', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high', 'path': '../assets/exersizevids/PelvicTilt.mp4' },
-        { 'name': 'Bicycles', 'equipment': 'none', 'muscle group': 'core', 'reps': 20, 'intensity': 'high', 'path': '../assets/exersizevids/Bicycles.mp4' },
+        { 'name': 'Plank', 'equipment': 'none', 'muscle group': 'core', 'reps': 30, 'intensity': 'high', 'path': '../assets/exersizevids/Pushups.mp4' },
+        { 'name': 'Glute Bridges', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high', 'path': '../assets/exersizevids/Pushups.mp4' },
+        { 'name': 'Side Plank', 'equipment': 'none', 'muscle group': 'core', 'reps': 30, 'intensity': 'high', 'path': '../assets/exersizevids/Pushups.mp4' },
+        { 'name': 'Pelvic Thrusts', 'equipment': 'none', 'muscle group': 'legs, glutes', 'reps': 15, 'intensity': 'high', 'path': '../assets/exersizevids/Pushups.mp4' },
+        { 'name': 'Bicycles', 'equipment': 'none', 'muscle group': 'core', 'reps': 20, 'intensity': 'high', 'path': '../assets/exersizevids/Pushups.mp4' },
     ],
 
     obese_exercises: [
@@ -118,13 +119,17 @@ const getExercises = (option) => {
     return currentAtt.splice(0, 4)
 }
 
-const WorkoutPlanner = ({ option }) => {
+const WorkoutPlanner = () => {
+    const route = useRoute();
+    console.log(route.params.option)
+
 
     const video = React.useRef(null);
     const [status, setStatus] = React.useState({});
     const [exercises, setExercises] = React.useState([]);
 
     useEffect(() => {
+        console.log(option)
         setExercises(getExercises(option));
     }, [])
 
@@ -134,7 +139,7 @@ const WorkoutPlanner = ({ option }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Workout Plan For you</Text>
-            <View style={styles.item}>
+            {/* <View style={styles.item}>
                 {
                     exercisesList.map((item) => (
                         <View key={item.name}>
@@ -161,7 +166,7 @@ const WorkoutPlanner = ({ option }) => {
                         </View>
                     ))
                 }
-            </View>
+            </View> */}
         </View>
     )
 }

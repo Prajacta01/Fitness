@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, SectionList, Dimensions, Pressable, Button } from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler';
@@ -9,12 +10,15 @@ const DATA = [
     }
 ];
 
-const Item = ({ title }) => {
+const Item = ({ title, navigation }) => {
     return (
         <Button
             title={title}
-            onPress={() =>
-                navigation.navigate('WorkoutPlanner', { option: 'excersises' })
+            onPress={() => {
+                console.log('here')
+
+                navigation.navigate('Workouts', { option: 'pregnant_exercises' })
+            }
             }
 
         />
@@ -36,18 +40,21 @@ const Item1 = ({ navigation }) => {
 
 
 
-const Survey = () => (
-    <SafeAreaView style={styles.container}>
-        <SectionList
-            sections={DATA}
-            keyExtractor={(item, index) => item + index}
-            renderItem={({ item }) => <Item title={item} />}
-            renderSectionHeader={({ section: { title } }) => (
-                <Text style={styles.header}>{title}</Text>
-            )}
-        />
-    </SafeAreaView>
-);
+const Survey = () => {
+    const navigation = useNavigation();
+    return (
+        <SafeAreaView style={styles.container}>
+            <SectionList
+                sections={DATA}
+                keyExtractor={(item, index) => item + index}
+                renderItem={({ item }) => <Item title={item} navigation={navigation} />}
+                renderSectionHeader={({ section: { title } }) => (
+                    <Text style={styles.header}>{title}</Text>
+                )}
+            />
+        </SafeAreaView>
+    );
+}
 
 const styles = StyleSheet.create({
     container: {

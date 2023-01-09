@@ -5768,6 +5768,11 @@
     "path-browserify" "^1.0.0"
     "url-parse" "^1.5.9"
 
+"expo-av@^13.0.2":
+  "integrity" "sha512-u+y9wUBodp08UjRZYckNWzr9zEQHK6eScRBkhdTd9Rq48SEZ7eN6xXn79hubvk0P5nj7lFS+hdKjmx9T5XHGww=="
+  "resolved" "https://registry.npmjs.org/expo-av/-/expo-av-13.0.2.tgz"
+  "version" "13.0.2"
+
 "expo-camera@^12.3.0":
   "integrity" "sha512-GEBnnzg4HJiQsQcuCWNF6AenFX5v3HsXe2Q3D5j82BZTaZG/X9uGV2No32N41VgQ0xHsP8HuXfCis9rTPR+wxg=="
   "resolved" "https://registry.npmjs.org/expo-camera/-/expo-camera-12.4.0.tgz"
