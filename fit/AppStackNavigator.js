@@ -1,14 +1,13 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 // import ImageDetection from "./pages/ImageDetection";
 import Home from "./pages/Home"
 import Workouts from './pages/Workouts';
 import Nutrition from "./pages/Nutrition"
 import Survey from "./pages/Survey"
-import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -75,3 +74,4 @@ const AppStackNavigator = () => {
 }
 
 export default AppStackNavigator;
+
