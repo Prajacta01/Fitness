@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Workouts from './pages/Workouts';
 import Nutrition from "./pages/Nutrition"
 import Survey from "./pages/Survey"
+import WorkoutPlanner from './pages/WorkoutPlanner';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -15,7 +16,7 @@ const Tab = createBottomTabNavigator();
 const AppStackNavigator = () => {
     return (
         <Tab.Navigator
-            initialRouteName="ImageDetection"
+            initialRouteName="Nutrition"
             activeColor="brown"
             barStyle={{ backgroundColor: '#6db06c' }}
         >

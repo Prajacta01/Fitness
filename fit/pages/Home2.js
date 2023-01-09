@@ -19,7 +19,7 @@ const Home = () => {
                     title="Workout Planner"
                     onPress={() => navigation.navigate("ImageDetection")}
                 >
-                    <FontAwesome5 name="calendar-alt" size={62} color="#404C4D" /> 
+                    <FontAwesome5 name="calendar-alt" size={62} color="#404C4D" />
                 </InfoCard>
                 <InfoCard
                     title="Nutrition"
